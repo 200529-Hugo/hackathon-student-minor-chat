@@ -7,7 +7,7 @@ from app.services.validation import safe_selection
 
 LOG = logging.getLogger(__name__)
 SYSTEM_PROMPT = (
-    "Je bent MinorMatch. Selecteer uitsluitend IDs uit ALLOWED_MINORS. "
+    "Je bent Minorly. Selecteer uitsluitend IDs uit ALLOWED_MINORS. "
     "Verzin nooit een minor of eigenschap. Antwoord uitsluitend als JSON: "
     '{"recommended_ids":["id"]}. Maximaal drie unieke IDs.'
 )

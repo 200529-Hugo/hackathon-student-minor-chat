@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_MinorMatch" targetNamespace="https://minormatch.example/bpmn" exporter="MinorMatch">
-  <bpmn:process id="Process_MinorMatch" name="MinorMatch gespreksproces" isExecutable="false">
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_Minorly" targetNamespace="https://Minorly.example/bpmn" exporter="Minorly">
+  <bpmn:process id="Process_Minorly" name="Minorly gespreksproces" isExecutable="false">
     <bpmn:laneSet id="LaneSet_1">
       <bpmn:lane id="Lane_Student" name="Student">
         <bpmn:flowNodeRef>start</bpmn:flowNodeRef>
@@ -13,7 +13,7 @@
         <bpmn:flowNodeRef>show</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>links</bpmn:flowNodeRef>
       </bpmn:lane>
-      <bpmn:lane id="Lane_Agent" name="MinorMatch Agent">
+      <bpmn:lane id="Lane_Agent" name="Minorly Agent">
         <bpmn:flowNodeRef>study</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>interests</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>enough</bpmn:flowNodeRef>
@@ -76,7 +76,7 @@
     <bpmn:sequenceFlow id="Flow_23" sourceRef="links" targetRef="endYes" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="Diagram_1">
-    <bpmndi:BPMNPlane id="Plane_1" bpmnElement="Process_MinorMatch">
+    <bpmndi:BPMNPlane id="Plane_1" bpmnElement="Process_Minorly">
       <bpmndi:BPMNShape id="Lane_Student_di" bpmnElement="Lane_Student" isHorizontal="true">
         <dc:Bounds x="0" y="0" width="1930" height="170" />
       </bpmndi:BPMNShape>

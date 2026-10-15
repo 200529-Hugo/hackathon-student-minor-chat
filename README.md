@@ -1,4 +1,4 @@
-# MinorMatch
+# Minorly
 
 Een Nederlandstalige, spraakgestuurde PoC voor HBO-studenten die een minor verkennen. De app vraagt eerst naar opleiding, interesses, ontwikkeldoel en eventuele praktische voorkeuren. Daarna toont hij maximaal drie matches uit een lokale Kies op Maat-dataset. Iedere kaart bevat herleidbare redenen en een bronlink.
 

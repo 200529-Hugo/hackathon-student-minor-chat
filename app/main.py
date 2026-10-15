@@ -9,7 +9,7 @@ from app.services.conversation import ConversationEngine
 from app.services.llm import LLMService
 from app.services.recommender import load_minors
 
-app = FastAPI(title="MinorMatch")
+app = FastAPI(title="Minorly")
 
 # Het bestand wordt één keer bij de start gelezen. Na een nieuwe scrape is een
 # serverherstart nodig om de dataset te verversen.

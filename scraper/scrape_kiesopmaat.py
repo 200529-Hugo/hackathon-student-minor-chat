@@ -11,7 +11,7 @@ import requests
 from bs4 import BeautifulSoup
 
 BASE = "https://accept.kiesopmaat.nl/modules/"
-HEADERS = {"User-Agent": "MinorMatch/0.1 (educational, low-rate scraper; contact via project README)"}
+HEADERS = {"User-Agent": "Minorly/0.1 (educational, low-rate scraper; contact via project README)"}
 LOG = logging.getLogger("scraper")
 
 

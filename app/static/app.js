@@ -21,7 +21,7 @@ function status(value) { statusEl.textContent = value; }
 function bubble(who, value) {
   const box = document.createElement('div'); box.className = `bubble ${who}`;
   const label = document.createElement('div'); label.className = 'bubble-label';
-  label.textContent = who === 'agent' ? 'MINORMATCH' : 'JIJ';
+  label.textContent = who === 'agent' ? 'Minorly' : 'JIJ';
   box.append(label, document.createTextNode(value)); chat.append(box);
   chat.scrollTop = chat.scrollHeight;
 }
@@ -92,7 +92,7 @@ async function speak(value) {
   synth.speak(utterance);
 }
 voiceSelect.addEventListener('change', () => { selectedVoiceKey = voiceSelect.value; });
-testVoice.addEventListener('click', () => { stopSpeaking(); speak('Hallo, ik ben MinorMatch. Zo klinkt deze stem.'); });
+testVoice.addEventListener('click', () => { stopSpeaking(); speak('Hallo, ik ben Minorly. Zo klinkt deze stem.'); });
 if (synth) synth.addEventListener('voiceschanged', refreshVoices);
 refreshVoices();
 function render(items) {
@@ -145,7 +145,7 @@ document.querySelector('#reset').addEventListener('click', async () => {
   if (recognition) recognition.stop(); stopSpeaking();
   try { await fetch('/api/reset', {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify({session_id:sessionId})}); }
   catch { note.textContent = 'Reset kon de server niet bereiken. Probeer opnieuw.'; return; }
-  chat.replaceChildren(); render([]); bubble('agent', 'Hallo, ik ben MinorMatch, een AI-assistent die je helpt bij het ontdekken van een minor. Deel liever geen gevoelige persoonsgegevens. Welke opleiding volg je nu?'); status('Klaar');
+  chat.replaceChildren(); render([]); bubble('agent', 'Hallo, ik ben Minorly, een AI-assistent die je helpt bij het ontdekken van een minor. Deel liever geen gevoelige persoonsgegevens. Welke opleiding volg je nu?'); status('Klaar');
 });
 if (Recognition) {
   // Spraakherkenning begint alleen na een klik; tekstinvoer blijft altijd werken.
@@ -155,4 +155,4 @@ if (Recognition) {
   recognition.onerror = () => { mic.classList.remove('listening'); status('Klaar'); note.textContent = 'Spraakherkenning is niet gelukt. Gebruik het tekstveld.'; };
   mic.addEventListener('click', () => { if (busy || speaking) return; stopSpeaking(); recognition.start(); mic.classList.add('listening'); status('Luisteren...'); });
 } else { mic.disabled = true; note.textContent = 'Deze browser ondersteunt geen spraakherkenning. Typ je antwoord hieronder.'; }
-bubble('agent', 'Hallo, ik ben MinorMatch, een AI-assistent die je helpt bij het ontdekken van een minor. Deel liever geen gevoelige persoonsgegevens. Welke opleiding volg je nu?');
+bubble('agent', 'Hallo, ik ben Minorly, een AI-assistent die je helpt bij het ontdekken van een minor. Deel liever geen gevoelige persoonsgegevens. Welke opleiding volg je nu?');

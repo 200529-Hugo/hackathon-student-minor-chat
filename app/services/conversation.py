@@ -3,7 +3,7 @@ import re
 from app.models import Profile, Session
 from app.services.recommender import rank
 
-WELCOME = ("Hallo, ik ben MinorMatch, een AI-assistent die je helpt bij het ontdekken van een minor. "
+WELCOME = ("Hallo, ik ben Minorly, een AI-assistent die je helpt bij het ontdekken van een minor. "
            "Deel liever geen gevoelige persoonsgegevens. Welke opleiding volg je nu?")
 
 

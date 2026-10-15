@@ -1,4 +1,4 @@
-# MinorMatch workflow
+# Minorly workflow
 
 Dit diagram toont de runtime-flow. De browser is de view, de FastAPI-routes zijn de controller, het profiel en de minorrecords zijn de modellen, en de services voeren gesprek, ranking en validatie uit.
 

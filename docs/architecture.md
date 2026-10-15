@@ -2,7 +2,7 @@
 
 ## MVC met services
 
-MinorMatch gebruikt een kleine MVC-indeling. `app/models.py` bevat het profiel, de sessie en de API-verzoekmodellen. `app/controllers/routes.py` behandelt HTTP en roept services aan. De view is `app/static/` met HTML, CSS en JavaScript. `app/main.py` verbindt die onderdelen; er staat geen gesprekslogica in de routes.
+Minorly gebruikt een kleine MVC-indeling. `app/models.py` bevat het profiel, de sessie en de API-verzoekmodellen. `app/controllers/routes.py` behandelt HTTP en roept services aan. De view is `app/static/` met HTML, CSS en JavaScript. `app/main.py` verbindt die onderdelen; er staat geen gesprekslogica in de routes.
 
 | Onderdeel | Bestanden | Verantwoordelijkheid |
 | --- | --- | --- |
