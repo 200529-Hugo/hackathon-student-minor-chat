@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='utf-8'?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_MinorMatch" targetNamespace="https://minormatch.example/bpmn" exporter="MinorMatch">
+  <bpmn:process id="Process_MinorMatch" name="MinorMatch gespreksproces" isExecutable="false">
+    <bpmn:laneSet id="LaneSet_1">
+      <bpmn:lane id="Lane_Student" name="Student">
+        <bpmn:flowNodeRef>start</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>relax</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>endNo</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>endYes</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_UI" name="Voice/UI">
+        <bpmn:flowNodeRef>notice</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>show</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>links</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Agent" name="MinorMatch Agent">
+        <bpmn:flowNodeRef>study</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>interests</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>enough</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>followup</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>found</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>uncertain</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>advisor</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>rank</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>select</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>explain</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>again</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>processNew</bpmn:flowNodeRef>
+      </bpmn:lane>
+      <bpmn:lane id="Lane_Database" name="Minor Database">
+        <bpmn:flowNodeRef>search</bpmn:flowNodeRef>
+      </bpmn:lane>
+    </bpmn:laneSet>
+    <bpmn:startEvent id="start" name="Start" />
+    <bpmn:task id="notice" name="AI-transparantiemelding tonen" />
+    <bpmn:task id="study" name="Studieachtergrond vragen" />
+    <bpmn:task id="interests" name="Interesses vragen" />
+    <bpmn:exclusiveGateway id="enough" name="Voldoende informatie?" />
+    <bpmn:task id="followup" name="Gerichte vervolgvraag" />
+    <bpmn:task id="search" name="Dataset zoeken" />
+    <bpmn:exclusiveGateway id="found" name="Kandidaten gevonden?" />
+    <bpmn:task id="uncertain" name="Onzekerheid melden" />
+    <bpmn:task id="relax" name="Voorkeur versoepelen" />
+    <bpmn:task id="advisor" name="Verwijs naar studieadviseur" />
+    <bpmn:endEvent id="endNo" name="Stop" />
+    <bpmn:task id="rank" name="Kandidaten ranken" />
+    <bpmn:task id="select" name="Maximaal 3 selecteren" />
+    <bpmn:task id="explain" name="Gepersonaliseerde uitleg" />
+    <bpmn:task id="show" name="Tonen en uitspreken" />
+    <bpmn:exclusiveGateway id="again" name="Vervolgvraag?" />
+    <bpmn:task id="processNew" name="Verzoek verwerken" />
+    <bpmn:task id="links" name="Officiële bronlinks tonen" />
+    <bpmn:endEvent id="endYes" name="Einde" />
+    <bpmn:sequenceFlow id="Flow_1" sourceRef="start" targetRef="notice" />
+    <bpmn:sequenceFlow id="Flow_2" sourceRef="notice" targetRef="study" />
+    <bpmn:sequenceFlow id="Flow_3" sourceRef="study" targetRef="interests" />
+    <bpmn:sequenceFlow id="Flow_4" sourceRef="interests" targetRef="enough" />
+    <bpmn:sequenceFlow id="Flow_5" sourceRef="enough" targetRef="followup" name="Nee" />
+    <bpmn:sequenceFlow id="Flow_6" sourceRef="followup" targetRef="enough" />
+    <bpmn:sequenceFlow id="Flow_7" sourceRef="enough" targetRef="search" name="Ja" />
+    <bpmn:sequenceFlow id="Flow_8" sourceRef="search" targetRef="found" />
+    <bpmn:sequenceFlow id="Flow_9" sourceRef="found" targetRef="uncertain" name="Nee" />
+    <bpmn:sequenceFlow id="Flow_10" sourceRef="uncertain" targetRef="relax" />
+    <bpmn:sequenceFlow id="Flow_11" sourceRef="relax" targetRef="search" name="Aanpassen" />
+    <bpmn:sequenceFlow id="Flow_12" sourceRef="relax" targetRef="advisor" name="Stoppen" />
+    <bpmn:sequenceFlow id="Flow_13" sourceRef="advisor" targetRef="endNo" />
+    <bpmn:sequenceFlow id="Flow_14" sourceRef="found" targetRef="rank" name="Ja" />
+    <bpmn:sequenceFlow id="Flow_15" sourceRef="rank" targetRef="select" />
+    <bpmn:sequenceFlow id="Flow_16" sourceRef="select" targetRef="explain" />
+    <bpmn:sequenceFlow id="Flow_17" sourceRef="explain" targetRef="show" />
+    <bpmn:sequenceFlow id="Flow_18" sourceRef="show" targetRef="again" />
+    <bpmn:sequenceFlow id="Flow_19" sourceRef="again" targetRef="processNew" name="Ja" />
+    <bpmn:sequenceFlow id="Flow_20" sourceRef="processNew" targetRef="search" name="Opnieuw zoeken" />
+    <bpmn:sequenceFlow id="Flow_21" sourceRef="processNew" targetRef="show" name="Details" />
+    <bpmn:sequenceFlow id="Flow_22" sourceRef="again" targetRef="links" name="Nee" />
+    <bpmn:sequenceFlow id="Flow_23" sourceRef="links" targetRef="endYes" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="Diagram_1">
+    <bpmndi:BPMNPlane id="Plane_1" bpmnElement="Process_MinorMatch">
+      <bpmndi:BPMNShape id="Lane_Student_di" bpmnElement="Lane_Student" isHorizontal="true">
+        <dc:Bounds x="0" y="0" width="1930" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_UI_di" bpmnElement="Lane_UI" isHorizontal="true">
+        <dc:Bounds x="0" y="170" width="1930" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Agent_di" bpmnElement="Lane_Agent" isHorizontal="true">
+        <dc:Bounds x="0" y="340" width="1930" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Lane_Database_di" bpmnElement="Lane_Database" isHorizontal="true">
+        <dc:Bounds x="0" y="510" width="1930" height="170" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="start_di" bpmnElement="start">
+        <dc:Bounds x="40" y="95" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="notice_di" bpmnElement="notice">
+        <dc:Bounds x="130" y="250" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="study_di" bpmnElement="study">
+        <dc:Bounds x="260" y="420" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="interests_di" bpmnElement="interests">
+        <dc:Bounds x="390" y="420" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="enough_di" bpmnElement="enough">
+        <dc:Bounds x="530" y="435" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="followup_di" bpmnElement="followup">
+        <dc:Bounds x="530" y="545" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="search_di" bpmnElement="search">
+        <dc:Bounds x="680" y="590" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="found_di" bpmnElement="found">
+        <dc:Bounds x="810" y="435" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="uncertain_di" bpmnElement="uncertain">
+        <dc:Bounds x="900" y="545" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="relax_di" bpmnElement="relax">
+        <dc:Bounds x="1030" y="205" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="advisor_di" bpmnElement="advisor">
+        <dc:Bounds x="1160" y="545" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="endNo_di" bpmnElement="endNo">
+        <dc:Bounds x="1290" y="220" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="rank_di" bpmnElement="rank">
+        <dc:Bounds x="940" y="420" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="select_di" bpmnElement="select">
+        <dc:Bounds x="1080" y="420" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="explain_di" bpmnElement="explain">
+        <dc:Bounds x="1220" y="420" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="show_di" bpmnElement="show">
+        <dc:Bounds x="1360" y="250" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="again_di" bpmnElement="again">
+        <dc:Bounds x="1490" y="435" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="processNew_di" bpmnElement="processNew">
+        <dc:Bounds x="1490" y="545" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="links_di" bpmnElement="links">
+        <dc:Bounds x="1630" y="250" width="112" height="68" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="endYes_di" bpmnElement="endYes">
+        <dc:Bounds x="1770" y="95" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1_di" bpmnElement="Flow_1">
+        <di:waypoint x="58" y="113" />
+        <di:waypoint x="186" y="284" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_2_di" bpmnElement="Flow_2">
+        <di:waypoint x="186" y="284" />
+        <di:waypoint x="316" y="454" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_3_di" bpmnElement="Flow_3">
+        <di:waypoint x="316" y="454" />
+        <di:waypoint x="446" y="454" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_4_di" bpmnElement="Flow_4">
+        <di:waypoint x="446" y="454" />
+        <di:waypoint x="555" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_5_di" bpmnElement="Flow_5">
+        <di:waypoint x="555" y="460" />
+        <di:waypoint x="586" y="579" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_6_di" bpmnElement="Flow_6">
+        <di:waypoint x="586" y="579" />
+        <di:waypoint x="555" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_7_di" bpmnElement="Flow_7">
+        <di:waypoint x="555" y="460" />
+        <di:waypoint x="736" y="624" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_8_di" bpmnElement="Flow_8">
+        <di:waypoint x="736" y="624" />
+        <di:waypoint x="835" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_9_di" bpmnElement="Flow_9">
+        <di:waypoint x="835" y="460" />
+        <di:waypoint x="956" y="579" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_10_di" bpmnElement="Flow_10">
+        <di:waypoint x="956" y="579" />
+        <di:waypoint x="1086" y="239" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_11_di" bpmnElement="Flow_11">
+        <di:waypoint x="1086" y="239" />
+        <di:waypoint x="736" y="624" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_12_di" bpmnElement="Flow_12">
+        <di:waypoint x="1086" y="239" />
+        <di:waypoint x="1216" y="579" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13_di" bpmnElement="Flow_13">
+        <di:waypoint x="1216" y="579" />
+        <di:waypoint x="1308" y="238" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_14_di" bpmnElement="Flow_14">
+        <di:waypoint x="835" y="460" />
+        <di:waypoint x="996" y="454" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15_di" bpmnElement="Flow_15">
+        <di:waypoint x="996" y="454" />
+        <di:waypoint x="1136" y="454" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16_di" bpmnElement="Flow_16">
+        <di:waypoint x="1136" y="454" />
+        <di:waypoint x="1276" y="454" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_17_di" bpmnElement="Flow_17">
+        <di:waypoint x="1276" y="454" />
+        <di:waypoint x="1416" y="284" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18_di" bpmnElement="Flow_18">
+        <di:waypoint x="1416" y="284" />
+        <di:waypoint x="1515" y="460" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19_di" bpmnElement="Flow_19">
+        <di:waypoint x="1515" y="460" />
+        <di:waypoint x="1546" y="579" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_20_di" bpmnElement="Flow_20">
+        <di:waypoint x="1546" y="579" />
+        <di:waypoint x="736" y="624" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_21_di" bpmnElement="Flow_21">
+        <di:waypoint x="1546" y="579" />
+        <di:waypoint x="1416" y="284" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_22_di" bpmnElement="Flow_22">
+        <di:waypoint x="1515" y="460" />
+        <di:waypoint x="1686" y="284" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_23_di" bpmnElement="Flow_23">
+        <di:waypoint x="1686" y="284" />
+        <di:waypoint x="1788" y="113" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

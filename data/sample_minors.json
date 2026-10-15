@@ -1,0 +1,58 @@
+[
+  {
+    "id": "che-144244",
+    "name": "Ondernemen (i.s.m. AFAS & Rabobank)",
+    "institution": "Christelijke Hogeschool Ede",
+    "description": "Ontwikkel en test met een klein team een eigen onderneming. Het programma behandelt marktonderzoek, businessplanning, marketing, duurzaamheid, innovatie en creativiteit.",
+    "location": "Ede en Leusden",
+    "language": "Nederlands",
+    "study_mode": "Voltijd",
+    "period": null,
+    "credits": "30,0",
+    "admission_requirements": "De propedeutische fase moet succesvol zijn afgerond; competentieniveau 2 wordt verwacht.",
+    "tags": ["ondernemen", "innovatie", "creativiteit", "duurzaamheid"],
+    "url": "https://acceptatie.kiesopmaat.nl/modules/che/-/144244/"
+  },
+  {
+    "id": "hku-143565",
+    "name": "Arts and Ecology",
+    "institution": "HKU",
+    "description": "Werk aan een eigen creatief project rond natuur, biodiversiteit, ecologie en klimaat. Kunst, ontwerp en maatschappelijke impact komen samen.",
+    "location": "Utrecht",
+    "language": "Nederlands",
+    "study_mode": null,
+    "period": "September tot februari",
+    "credits": null,
+    "admission_requirements": "Creatieve of sociale bachelorstudie, propedeuse en matching; motivatiebrief, portfolio en gesprek.",
+    "tags": ["duurzaamheid", "ecologie", "kunst", "creatief", "maatschappelijk"],
+    "url": "https://acceptatie.kiesopmaat.nl/modules/hku/-/143565/"
+  },
+  {
+    "id": "avans-139379",
+    "name": "21st Century Urban Innovation (all studies)",
+    "institution": "Avans Hogeschool",
+    "description": "Werk in een multidisciplinair team aan innovatie, stedelijke vernieuwing en duurzame oplossingen voor opdrachtgevers in Breda.",
+    "location": "Breda",
+    "language": "Engels",
+    "study_mode": "Voltijd",
+    "period": null,
+    "credits": "30,0",
+    "admission_requirements": "Propedeuse, stages en minstens driekwart van de bachelor afgerond; persoonlijk intakegesprek.",
+    "tags": ["innovatie", "duurzaamheid", "stedelijk", "advies"],
+    "url": "https://acceptatie.kiesopmaat.nl/modules/avans/ATIX/139379/"
+  },
+  {
+    "id": "hva-144248",
+    "name": "3D Hypercraft",
+    "institution": "Hogeschool van Amsterdam",
+    "description": "Onderzoek en maak digitale toepassingen voor mode met Research Through Design en creatieve technologie.",
+    "location": "Amsterdam",
+    "language": "Engels",
+    "study_mode": "Voltijd",
+    "period": null,
+    "credits": "30,0",
+    "admission_requirements": "Gevorderd Engels en enige kennis van mode en digitale software.",
+    "tags": ["mode", "creatief", "ontwerp", "digitale technologie"],
+    "url": "https://acceptatie.kiesopmaat.nl/modules/hva/FDMCI/144248/"
+  }
+]
